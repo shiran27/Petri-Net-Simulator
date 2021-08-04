@@ -45,23 +45,21 @@ for timeValue = 0:timeResolution:timeHorizon
         colorVal = examplePN.checkSpec();
         delete(textHandle1); delete(textHandle2); delete(textHandle3);  
         
-%         textHandle1 = text(1,textLevel+0.5,['Time: ',num2str(timeValue,5)],'Color','k','FontSize',textLevel/10);
-%         textHandle2 = text(1,textLevel+6.5,examplePN.specification,'Color',colorVal,'FontSize',textLevel/10,'Interpreter','latex');
-        
+        % For the AGV petri net examples use the following three lines
         textHandle1 = text(1,textLevel+5,['Time: ',num2str(timeValue,5)],'Color','k','FontSize',textLevel/40);
         textHandle2 = text(1,textLevel+13,examplePN.specification,'Color',colorVal,'FontSize',textLevel/40,'Interpreter','latex');
         textHandle3 = text(205,5,['Parts Produced: ',num2str(examplePN.transitions(12).triggerCount)],'Color','k','FontSize',textLevel/40,'Interpreter','latex');
+        
+        % For other petri net examples use the following two lines
+%         textHandle1 = text(1,textLevel+0.5,['Time: ',num2str(timeValue,5)],'Color','k','FontSize',textLevel/10);
+%         textHandle2 = text(1,textLevel+6.5,examplePN.specification,'Color',colorVal,'FontSize',textLevel/10,'Interpreter','latex');
         
         if videoMode
             frameArray(frameCount) = getframe(gcf);
             frameCount = frameCount + 1;
         end
-        
-%         if examplePN.getAGVLocations()~=5
-%             disp('AGV missing')
-%         end
     end
 end
 
 
-run('graphicsOfSimulation.m') 
+run('graphicsOfSimulation.m')  % to compile the video file

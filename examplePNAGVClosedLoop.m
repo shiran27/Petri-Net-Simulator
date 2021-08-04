@@ -4,7 +4,7 @@ function [name,places,transitions,arcs,sizeOfSpace,specification,regions] = exam
     name = 'Automated Guided Vehicle Petri Net (Closed Loop)';
     
     %% loading places using: Place(index, name, location, centroid)
-    holdingTime = 0.1;
+    holdingTime = 0.1;   
     
     IPS1 = Place(1, 'IPS1', [30, 480], [NaN, NaN], holdingTime);
     IPS2 = Place(2, 'IPS2', [30, 460], [NaN, NaN], holdingTime);
